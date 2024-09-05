@@ -1,0 +1,30 @@
+﻿@using DotnetTemplate.Web.ViewModels.Home
+@model SecondPageViewModel
+@{
+  ViewData["Title"] = "DotnetTemplate - Second Page";
+}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+    <h1>Second Page</h1>
+    <div>
+      @foreach (var item in Model.SecondPageItems)
+      {
+        <div class="course-card nhsuk-panel">
+          <details class="nhsuk-details nhsuk-expander nhsuk-u-margin-bottom-0">
+            <summary class="nhsuk-details__summary nhsuk-u-padding-top-0 nhsuk-u-padding-left-0">
+              <span class="nhsuk-details__summary-text" role="heading" aria-level="3">
+                @item
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              <div class="nhsuk-grid-row">
+                <h5 class="nhsuk-u-margin-bottom-2">More item details</h5>
+              </div>
+            </div>
+          </details>
+        </div>
+      }
+    </div>
+  </div>
+</div>
