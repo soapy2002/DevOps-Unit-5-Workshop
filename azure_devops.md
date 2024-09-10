@@ -6,7 +6,7 @@
 
 To start, we'll set up an Azure DevOps (ADO) workspace within an ACloudGuru sandbox to explore this exercise.
 
-Visit [the Cloud Sandboxes page in ACG](https://learn.acloud.guru/cloud-playground/cloud-sandboxes) now, and start an Azure Sandbox. Open that as guided, and note the instructions to open the Azure portal in an incognito browser to avoid contamination with any existing Microsoft accounts!
+Visit [the Cloud Sandboxes page in ACG](https://learn.acloud.guru/cloud-playground/cloud-sandboxes) now, and start an Azure Sandbox. Open that as guided, noting the instructions to open the Azure portal in an incognito browser to avoid contamination with any existing Microsoft accounts!
 
 To create that ADO workspace:
 * Search for `Azure DevOps Organizations` in the search bar from the https://portal.azure.com homepage and select "My Azure DevOps Organizations" or jump directly to <https://aex.dev.azure.com/>
@@ -38,7 +38,7 @@ We typically want this to be stored directly alongside our codebase, so that we 
 
 Within the Repos tab, you can click the "Import" button to import the existing GitHub repository: <https://github.com/corndeladmin/DevOps-Unit-5-Workshop.git>.
 
-> Note at this stage that a single ADO Project can hold _multiple_ repositories: you can click on the repository list at the top (as per the image below) to add more.
+> Note at this stage that a single ADO _Project_ can hold multiple _repositories_: you can click on the repository list at the top (as per the image below) to add more.
 
 ![Create repo image](./img/ado-create-repo.png)
 
@@ -88,9 +88,7 @@ Note that each step is defined as either a "script" or a "task".
 
 Check you're working on the right branch and then commit & push this file.
 
-> Note that unlike GitHub / GitLab, the pipeline doesn't automatically run just because we created a file with a magic name.
-
-Moving to the Pipelines view in ADO, we can now register our pipeline.
+Moving to the Pipelines view in ADO, we can now register our pipeline; unlike GitHub / GitLab, the pipeline doesn't automatically run just because we created a file with a magic name.
 
 To create your pipeline:
 * Click "Create Pipeline"
@@ -98,11 +96,11 @@ To create your pipeline:
 * Select your repository
 * It should then locate your pipeline file, and you can click "Run"
 
-After a few seconds, you should see it has paused! Click into the pipeline and grant it permission to access the Default agent pool that we assigned it.
+After a few seconds, you should see it has paused and a warning appears! Grant the pipeline permission to access the Default agent pool that we assigned it.
 
 Now the pipeline will try to run and we see ... **a failure**!
 
-You should see an issue like:
+Click into the job, and you should see an issue like:
 > _No agent found in pool Default which satisfies the specified demands_
 
 Unlike GitHub/GitLab, ADO doesn't automatically offer a free tier for running jobs. They will generally grant access to a single free Microsoft-hosted pipeline if [you apply for it](https://learn.microsoft.com/en-us/azure/devops/pipelines/troubleshooting/troubleshoot-start?view=azure-devops#check-for-available-parallel-jobs), but this can take a few business days to approve so won't work for us here.
@@ -126,7 +124,7 @@ You can generate the PAT by clicking on the User Settings (at the top right, by 
 
 Make a note of the value - if you lose this it can't be recovered, although we can always generate a new one.
 
-Your organisation name will be <https://dev.azure.com/<YOUR TEMPORARY USERNAME HERE>> e.g. https://dev.azure.com/clouduserblahblah11 (although you can change this if you want).
+Your organisation name will be <https://dev.azure.com/\<YOUR TEMPORARY USERNAME HERE\>> e.g. https://dev.azure.com/clouduserblahblah11 (although you can change this if you want).
 
 With those values at hand, [return to the Azure Portal](https://portal.azure.com) and search for "Deploy a Custom Template".
 
@@ -169,7 +167,7 @@ It's up to you how exactly you do this, but consider:
   * If we had multiple agents, could we parallelise them?
   * Should we?
 
-### Stretch
+## Stretch
 
 ### (Stretch Goal) Publish an artifact
 
@@ -187,10 +185,45 @@ Once the job is succeeding, you should be able to see a link to the artifact in 
 
 Click the link & check something sensible has been stored.
 
+### (Stretch Goal) Track our changes!
+
+So far we've just been getting on with the work, but we really ought to be tracking it carefully. Let's see how ADO can help us track the work.
+
+This project is currently configured to have the Boards use the "Basic" process - ADO offers several in-built flows so you may work with different terminology; [Azure offer more info on those here](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/guidance/choose-process?view=azure-devops&tabs=agile-process#default-processes).
+
+Go to "Boards" and raise a new "Work Item" of type "Feature". Give yourself a simple task, such as "Change the text on the homepage".
+
+Take a moment to look at what fields are offered to be tweaked, such as the state ("To Do"), the priority, and a more detailed description, then save the issue.
+
+Make a note of the issue number, and check that appears as you'd expect on the "Boards" view. One nice feature of ADO is that we can easily associate branches, PRs and individual commits with work items. First, check this is enabled for your repository through:
+* Project Settings
+* Repositories -> your repo
+* Settings
+* Check "Commit mention linking" is on
+
+> You may notice that we can take this one step further, as there's also an option for:
+> "Commit mention work item resolution" which "Allows mentions in commit comments to close work items (e.g. "Fixes #123")."
+> Leave this off for now
+
+Now move the ticket into the "Doing" stage, and then get going!
+
+Make a small visible change to the code, for example change the `First Page!` title in `DotnetTemplate.Web\Views\Home\FirstPage.cshtml`. When you're ready to make the change, make sure to include `#<issue_number>` as part of your commit message, e.g.:
+```bash
+git commit -m "#14 Change the homepage text"
+```
+
+Push your change to main, and check the build succeeds. If you open the ticket, can you see a link to the relevant commit?
 
 ### (Stretch goal) Slack notifications
 
 To make sure people are aware when there are issues with the build, it can be useful to send a notification at the end of the workflow.
+
+There are many notification platforms we might use for this:
+* Emails
+* Instant messaging (Teams, Slack etc.)
+* Dedicated pagers
+
+Many of these require appropriate permissions or paid services, so for today we'll try out Slack on a free tier.
 
 **If you haven't already, please create your own personal slack workspace for this part of the exercise. This is free and can be set up [here](https://slack.com/create).**
 
