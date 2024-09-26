@@ -211,7 +211,7 @@
               },
               "protectedSettings": {
                 "fileUris": ["https://raw.githubusercontent.com/corndeladmin/DevOps-Unit-5-Workshop/main/ado_pipeline_register.sh"],
-                "commandToExecute": "[concat('sh install-script.sh ', parameters('devopsURL'), ' ', parameters('devopsPAT'))]"
+                "commandToExecute": "[concat('sh ado_pipeline_register.sh ', parameters('devopsURL'), ' ', parameters('devopsPAT'))]"
               }
             }
           }

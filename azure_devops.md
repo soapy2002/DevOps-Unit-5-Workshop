@@ -120,11 +120,15 @@ In order to create and register your self hosted agent, we'll need access to:
 * A PAT (Personal Access Token) for the agent to have permission to talk to ADO
 * Your ADO organisation URL
 
-You can generate the PAT by clicking on the User Settings (at the top right, by your initials) and visiting the Personal Access Tokens page. For simplicity here, we'll break best security practice and generate a PAT with "Full Access".
+You can generate the PAT by clicking on the User Settings (at the top right, to the left of your initials) and visiting the Personal Access Tokens page. For simplicity here, we'll break best security practice and generate a PAT with "Full Access".
 
 Make a note of the value - if you lose this it can't be recovered, although we can always generate a new one.
 
-Your organisation name will be <https://dev.azure.com/\<YOUR TEMPORARY USERNAME HERE\>> e.g. https://dev.azure.com/clouduserblahblah11 (although you can change this if you want).
+Your organisation name will be 
+```
+https://dev.azure.com/<YOUR TEMPORARY USERNAME HERE>
+```
+ e.g. https://dev.azure.com/clouduserblahblah11 (although you can change this if you want).
 
 With those values at hand, [return to the Azure Portal](https://portal.azure.com) and search for "Deploy a Custom Template".
 
