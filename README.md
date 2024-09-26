@@ -43,5 +43,5 @@ For the morning, you have two choices! You can either build this CI pipeline usi
 - [GitLab CI instructions](gitlab.md)
 
 ## Afternoon
-(ADO instructions here)
+- [Azure DevOps instructions](azure_devops.md)
 
