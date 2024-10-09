@@ -43,5 +43,7 @@ For the morning, you have two choices! You can either build this CI pipeline usi
 - [GitLab CI instructions](gitlab.md)
 
 ## Afternoon
+In the afternoon we'll be exploring another CI tool/platform, Azure DevOps (ADO). This includes additional tasks not covered in the morning such as setting up our own pipeline runner.
+
 - [Azure DevOps instructions](azure_devops.md)
 
