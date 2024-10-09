@@ -40,11 +40,17 @@ See [the GitLab documentation](https://docs.gitlab.com/ee/ci/quick_start/) for m
 
 #### Validate the C# code
 
-First, we want the CI pipeline to build the C# code and run the C# tests. This requires having the .NET SDK installed. Instead of scripting the installation of .NET on the runner, we can run the job inside a container that already has it installed. To do this, add `image: desired-image-name-here` to your job, but with an appropriate image name. Find the correct tag for [Microsoft's image](https://hub.docker.com/_/microsoft-dotnet-sdk).
+First, we want the CI pipeline to build the C# code and run the C# tests. This requires having the .NET SDK installed. Instead of scripting the installation of .NET on the runner, we can run the job inside a **container** that already has it installed. 
+
+> *Although we have not yet formally introduced containers  it's very common to use them "by accident". For example the "Actions" of GitHub Actions often run in containers as well.*
+>
+> *For the exercise today we only need to know how to find and reference prebuilt official containers on [Docker Hub](https://hub.docker.com/) (think of it as GitHub/GitLab for containers). You do not need to know or have installed any containerisation tools for this workshop.*
 
 Amend the job in your workflow file so that it:
 
 1. Uses a Docker image that has the .NET SDK installed
+    * To do this, add `image: desired-image-name-here` to your job, but with an appropriate image name. Find the correct SDK tag for [Microsoft's image repository here](https://hub.docker.com/_/microsoft-dotnet-sdk) (**hint:** it starts with `mcr.microsoft.com`)
+
 2. Builds the C# code.
 3. Runs the C# tests.
 
@@ -52,7 +58,7 @@ Update the script to run the two commands `dotnet build` and `dotnet test`. Push
 
 #### Validate the TypeScript code
 
-Next, we want the pipeline to validate the TypeScript code. You need a different image (with Node installed instead of .NET) so create a second job with an appropriate image. This new job can belong to the same stage as the first one, because they do not depend on each other and can happily run in parallel.
+Next, we want the pipeline to validate the TypeScript code. *You need a different image for this* (with Node installed instead of .NET) so create a second job with an appropriate image. This new job can belong to the same stage as the first one, because they do not depend on each other and can happily run in parallel.
 
 Fill in the "script" section with the correct commands so that it:
 
@@ -63,6 +69,18 @@ Fill in the "script" section with the correct commands so that it:
 
 Remember that you want to run the `npm` commands from the DotnetTemplate.Web directory.
 
+### (Stretch goal) Change when the workflow is run
+
+Change your workflow so that it only runs when pushing to the main branch or by raising a Merge Request. Is there a way to ensure that no one can update the main branch except through a PR that has passed the workflow?
+
+### (Stretch goal) Review the concurrency of the pipeline jobs
+
+Look at the sequencing of your two pipeline jobs. Do they run in parallel or in series? How would you change this behaviour?
+
+### (Stretch goal) Pipeline status badge
+
+Add a [pipeline status badge](https://docs.gitlab.com/ee/user/project/badges.html) to your repository.
+
 ### (Stretch goal) Slack notifications
 
 To make sure people are aware when there are issues with the build, it can be useful to send a Slack notification at the end of the workflow.
@@ -70,11 +88,3 @@ To make sure people are aware when there are issues with the build, it can be us
 **Before attempting this step please create your own personal slack workspace. This is free and can be set up [here](https://slack.com/create).**
 
 Take a look at the [GitLab Slack integration](https://docs.gitlab.com/ee/user/project/integrations/slack.html).
-
-### (Stretch goal) Pipeline status badge
-
-Add a [pipeline status badge](https://docs.gitlab.com/ee/user/project/badges.html) to your repository.
-
-### (Stretch goal) Change when the workflow is run
-
-Change your workflow so that it only runs when pushing to the main branch or by raising a Merge Request. Is there a way to ensure that no one can update the main branch except through a PR that has passed the workflow?
