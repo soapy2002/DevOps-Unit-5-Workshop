@@ -51,7 +51,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-
     - name: Hello world       # Name of step
       run: echo 'Hello world' # Command to run
 ```
@@ -80,6 +79,18 @@ You should amend your workflow file so that it:
 4. Runs the linter on the TypeScript code.
 5. Runs the TypeScript tests.
 
+### (Stretch goal) Change when the workflow is run
+
+Change your workflow so that it only runs when pushing to the main branch or by raising a PR. Is there a way to ensure that no one can update the main branch except through a PR that has passed the workflow?
+
+### (Stretch goal) Review the concurrency of the pipeline jobs
+
+Look at the sequencing of your two pipeline jobs. Do they run in parallel or in series? How would you change this behaviour?
+
+### (Stretch goal) Workflow status badge
+
+Add a [workflow status badge](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/adding-a-workflow-status-badge) to your repository.
+
 ### (Stretch goal) Slack notifications
 
 To make sure people are aware when there are issues with the build, it can be useful to send a Slack notification at the end of the workflow.
@@ -92,10 +103,4 @@ To make sure people are aware when there are issues with the build, it can be us
 
 You should not commit your webhook URL to the repository, instead store it in a [repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository), and [read it in your pipeline](https://docs.github.com/en/actions/security-guides/encrypted-secrets#using-encrypted-secrets-in-a-workflow).
 
-### (Stretch goal) Workflow status badge
 
-Add a [workflow status badge](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/adding-a-workflow-status-badge) to your repository.
-
-### (Stretch goal) Change when the workflow is run
-
-Change your workflow so that it only runs when pushing to the main branch or by raising a PR. Is there a way to ensure that no one can update the main branch except through a PR that has passed the workflow?

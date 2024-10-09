@@ -32,7 +32,7 @@ sudo apt update && sudo apt install -y npm
 ```
 
 ### Text editing in ACG
-If you are using an ACG instance, you can continue to use the `nano` text editor to edit files. However, if you would prefer to use VS Code on ACG again like we did last workshop, you can follow the same instructions provided then to install and run VS Code on your ACG instance.
+If you are using an ACG instance, you can continue to use the `nano` text editor to edit files. However, if you would prefer to use VS Code on ACG again like we did last workshop, you can follow the same instructions to install and run VS Code on your ACG instance.
 
 ## Morning
 Today we're going to be building a CI pipeline for an application. The application is in this repository, and it is a simple C# application that has a frontend and a backend. The frontend will use npm to build, and the backend will use .NET to build. So, those are the tools that will be invoked in the CI pipeline.
