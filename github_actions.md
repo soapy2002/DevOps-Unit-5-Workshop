@@ -85,7 +85,7 @@ Change your workflow so that it only runs when pushing to the main branch or by 
 
 ### (Stretch goal) Review the concurrency of the pipeline jobs
 
-Look at the sequencing of your two pipeline jobs. Do they run in parallel or in series? How would you change this behaviour?
+Your job currently runs the C# steps and then runs the Typescript steps. Restructure the workflow so that the C# & Typescript steps run in parallel (*hint*: create a second job).
 
 ### (Stretch goal) Workflow status badge
 
