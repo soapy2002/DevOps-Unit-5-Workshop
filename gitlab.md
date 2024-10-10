@@ -2,7 +2,7 @@
 
 ### Step 1 - Get the code
 
-- Sign in to GitLab and create a new project/repository
+- Sign in to GitLab and create a new *public* project/repository
 - Select "Import project"
 - Select "Repo by URL"
 - Enter the URL of this repository and omit any username/password (credentials aren't required because this repository is public).

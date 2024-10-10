@@ -2,7 +2,7 @@
 
 ### Step 1 - Get the code
 
-We'll be working on top of this repository. Because you'll need to change some settings on the repository later in the workshop, it's recommended that you [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the repository instead of cloning it. To do that:
+We'll be working on top of this repository. It's slightly easier to [fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the repository instead of cloning it. To do that:
 1. Click the Fork button in the top right on the repository page.
 2. Select your GitHub user when it asks you where you should fork it to.
 3. This should take you to a fork of the repository on your account, e.g. <https://github.com/MyUser/DevOps-Unit-5-Workshop> where MyUser will be replaced by your username.
