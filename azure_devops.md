@@ -124,11 +124,11 @@ You can generate the PAT by clicking on the User Settings (at the top right, to 
 
 Make a note of the value - if you lose this it can't be recovered, although we can always generate a new one.
 
-Your organisation name will be 
+Your organisation url can be found by visiting the ADO organisation page and should look something like
 ```
-https://dev.azure.com/<YOUR TEMPORARY USERNAME HERE>
+https://dev.azure.com/<ENCODED USERNAME>
 ```
- e.g. https://dev.azure.com/clouduserblahblah11 (although you can change this if you want).
+ e.g. https://dev.azure.com/clouduserblahblah11 
 
 With those values at hand, [return to the Azure Portal](https://portal.azure.com) and search for "Deploy a Custom Template".
 
