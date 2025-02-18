@@ -42,6 +42,9 @@ For the morning, you have two choices! You can either build this CI pipeline usi
 - [GitHub Actions instructions](github_actions.md)
 - [GitLab CI instructions](gitlab.md)
 
+## Status Badge
+[![Continuous Integration](https://github.com/soapy2002/DevOps-Unit-5-Workshop/actions/workflows/pipeline.yml/badge.svg)](https://github.com/soapy2002/DevOps-Unit-5-Workshop/actions/workflows/pipeline.yml)
+
 ## Afternoon
 In the afternoon we'll be exploring another CI tool/platform, Azure DevOps (ADO). This includes additional tasks not covered in the morning such as setting up our own pipeline runner.
 
