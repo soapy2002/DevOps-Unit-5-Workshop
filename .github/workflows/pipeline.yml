@@ -17,12 +17,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: install dependencies and build typescript
-    - working-directory: cd ./DotnetTemplate.Web
     - run: |
+            cd ./DotnetTemplate.Web
             npm install
             npm run build
     - name: test TypeScript
-    - working-directory: cd ./DotnetTemplate.Web
     - run: |
+            cd ./DotnetTemplate.Web
             npm t
             npm run lint
