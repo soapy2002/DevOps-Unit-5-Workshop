@@ -8,21 +8,21 @@ jobs:
     steps:
     - uses: actions/checkout@v4 # Adds a step to checkout the repository code
     - name: Build C# Code
-    - run: dotnet build
+        run: dotnet build
     - name: test C#
-    - run: dotnet test
+        run: dotnet test
   build2:
     name: Build and test TypeScript
     runs-on: ubuntu-latest      # Sets the build environment a machine with the latest Ubuntu installed
     steps:
     - uses: actions/checkout@v4
     - name: install dependencies and build typescript
-    - run: |
+        run: |
             cd ./DotnetTemplate.Web
             npm install
             npm run build
     - name: test TypeScript
-    - run: |
+        run: |
             cd ./DotnetTemplate.Web
             npm t
             npm run lint
