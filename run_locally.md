@@ -1,4 +1,5 @@
 # Running the app locally
+test
 
 It is helpful to be able to experiment locally, so it's worth having a go at the below, but getting the app running is not required for the exercise. If you are having trouble with it then feel free to skip onto the next part of the exercise.
 
